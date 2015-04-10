@@ -8,7 +8,7 @@ func _ready():
 func Travel(item):
 	var game = get_game()
 	game.set_location(item)
-	game.update_prices()
+	game.update_items()
 
 func get_game():
 	return get_parent().get_parent()

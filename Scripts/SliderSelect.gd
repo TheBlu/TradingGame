@@ -1,6 +1,9 @@
 extends TextEdit	
 
 func _ready():
+	update()
+	
+func update():
 	set_text( str( get_parent().get_child( 1 ).get_value() ) )
 
 func _on_HSlider_value_changed( value ):
