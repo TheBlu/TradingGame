@@ -1,7 +1,7 @@
 extends CenterContainer
 
-var prices_always = {"Hydrogen": 4, "Helium": 25}
-var prices = {"Hydrogen": 5, "Helium": 20}
+var prices_mod = {"Hydrogen": 1, "Helium": 5}
+var prices_base = {"Hydrogen": 5, "Helium": 20}
 
 func _ready():
 	get_child(0).set_text(get_name())
