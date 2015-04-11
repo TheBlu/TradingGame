@@ -2,9 +2,6 @@ extends Control
 
 var inventory = {}
 
-func _ready():
-	update_items()
-
 func Bought(item, amount, cost):
 	var name = item.get_name()
 	if inventory.has(name):
@@ -21,27 +18,9 @@ func Sold(item, amount, cost):
 			set_money(get_money() + cost)
 			update_owned(item)
 
-func update_items():
-	var trade = get_child(1).get_child(0)
-	var items = trade.get_child(0)
-	var travel = get_child(1).get_child(1)
-	var locations = trade.locationdata.keys()
-	var location = get_location()
-	for item in items.get_children():
-		item.free()
-	var item_types = trade.locationdata[location]["base"]
-	var item_class = preload("res://Scenes/Item.scn")
-	var keys = item_types.keys()
-	for i in range(keys.size()):
-		var item = item_class.instance()
-		item.set_name(keys[i])
-		trade.get_child(0).add_child(item)
-		var price = trade.locationdata[location]["base"][item.get_name()] + trade.locationdata[location]["mod"][item.get_name()]
-		trade.set_price(item, price)
-
 func update_owned(item):
 	var name = item.get_name()
-	item.get_child(0).get_child(1).set_text(str(inventory[name]))
+	item.get_child(0).get_child(0).get_child(1).set_text(str(inventory[name]))
 
 func set_money(amount):
 	var money = get_child(0).get_child(0).get_child(0).get_child(1)
