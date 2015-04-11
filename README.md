@@ -1,9 +1,11 @@
 # TradingGame
 
-This is a game where you can trade Hydrogen, Helium and Wine between Estonia, France and Greece, built using Godot Engine.
-You can modify types of goods and the trading locations to meet your tastes in the Location.scn class.
+This is a game where you can trade various goods between different locations, built using Godot Engine.
+You can modify the types of goods and the trading locations to meet your tastes in the Location.scn class.
+Any suggestions/ideas are very welcome. You can contact me at tanel58@hotmail.com or at #godotengine on Freenode(if I'm there).
 
-The format looks like this:
+
+The format of locationdata looks like this:
 ```
 
 # Set locations
