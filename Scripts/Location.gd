@@ -19,6 +19,8 @@ func _ready():
 	locationdata["Estonia"]["mod"]["Hydrogen"] = 2
 	locationdata["Estonia"]["base"]["Helium"] = 30
 	locationdata["Estonia"]["mod"]["Helium"] = 3
+	locationdata["Estonia"]["base"]["Wine"] = 40
+	locationdata["Estonia"]["mod"]["Wine"] = 3
 	locationdata["Greece"]["base"]["Hydrogen"] = 5
 	locationdata["Greece"]["mod"]["Hydrogen"] = 2
 	locationdata["Greece"]["base"]["Helium"] = 40
