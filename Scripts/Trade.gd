@@ -9,7 +9,6 @@ func _ready():
 	var loc = location_class.instance()
 	loc._ready()
 	locationdata = loc.locationdata
-	print("info" + str(locationdata))
 	var guide = get_child(0).get_child(0)
 	guide.get_child(1).free()
 	guide.get_child(1).free()
@@ -17,11 +16,9 @@ func _ready():
 	items = get_child(1)
 	logger = get_child(2)
 	logger.set_scroll_follow(true)
-	var travel = get_game().get_child(1).get_child(1)
-	#save_locations()
-	#load_locations()
 	update_location()
 	update_items()
+	loc.free()
 
 func Buy(item):
 	var name = item.get_name()
@@ -52,28 +49,6 @@ func set_price(item, price):
 func get_price(item):
 	return item.get_child(0).get_child(0).get_child(2).get_text().to_int()
 
-func save_locations():
-	var cf = ConfigFile.new()
-	var locations = locationdata.keys()
-	for location in locations:
-		var keys = locationdata[location].keys()
-		for key in keys:
-			cf.set_value(location, key, locationdata[location][key])
-	var err = cf.save("res://locations.conf")
-
-func load_locations():
-	var f = File.new()
-	var err2 = f.open()
-	var cf = ConfigFile.new()
-	var err = cf.load("res://locations.conf")
-	print(err)
-	var locations = cf.get_sections()
-	for location in locations:
-		var keys = cf.get_section_keys(location)
-		locationdata[location] = {}
-		for key in keys:
-			locationdata[location][key] = cf.get_value(location, key)
-
 func get_game():
 	return get_parent().get_parent()
 
@@ -92,7 +67,6 @@ func update_location():
 		loc.update()
 
 func update_items():
-	var trade = get_child(1).get_child(0)
 	var game = get_game()
 	var locations = locationdata.keys()
 	var location = game.get_location()

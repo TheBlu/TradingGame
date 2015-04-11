@@ -22,7 +22,6 @@ func _ready():
 	locationdata["Greece"]["base"]["Helium"] = 40
 	locationdata["Greece"]["mod"]["Hydrogen"] = 2
 	locationdata["Greece"]["mod"]["Helium"] = 3
-	print(locationdata)
 	update()
 
 func update():

@@ -37,7 +37,6 @@ func get_location():
 	var location = get_child(0).get_child(0).get_child(1).get_child(1).get_text()
 	var trade = get_child(1).get_child(0)
 	var locations = trade.locationdata.keys()
-	print(trade.locationdata)
 	if location == "":
 		location = locations[0]
 	set_location(location)
