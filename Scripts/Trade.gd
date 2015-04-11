@@ -59,8 +59,11 @@ func save_locations():
 func load_locations():
 	var cf = ConfigFile.new()
 	var err = cf.load("res://locations.conf")
+	print(err)
 	var locations = cf.get_sections()
 	for location in locations:
+		print("something")
+		print(location)
 		var keys = cf.get_section_keys(location)
 		locationdata[location] = {}
 		for key in keys:

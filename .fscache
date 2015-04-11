@@ -1,4 +1,4 @@
-::res://::1428717414
+::res://::1428728177
 icon.png::ImageTexture::1428713465::
 ::res://Fonts::1428713465
 arial.fnt::Font::1428713465::font<>../../../../usr/share/fonts/TTF/arial.ttf<>f11c0317db527bdd80fa0afa04703441<>1427862129
@@ -22,13 +22,13 @@ HydrogenItem.scn::PackedScene::1428713465::
 Chile.scn::PackedScene::1428713465::
 Estonia.scn::PackedScene::1428713465::
 Greece.scn::PackedScene::1428713465::
-::res://Scripts::1428721937
-Game.gd::GDScript::1428721937::
+::res://Scripts::1428728263
+Game.gd::GDScript::1428728263::
 HeliumItem.gd::GDScript::1428713465::
 HydrogenItem.gd::GDScript::1428713465::
 Indicator.gd::GDScript::1428715773::
 Item.gd::GDScript::1428716925::
-Location.gd::GDScript::1428721937::
+Location.gd::GDScript::1428728263::
 SliderSelect.gd::GDScript::1428716925::
 SliderStabilize.gd::GDScript::1428714072::
 Trade.gd::GDScript::1428716925::
