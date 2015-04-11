@@ -66,21 +66,25 @@ func update_location():
 		loc.set_name(location)
 		loc.update()
 
+func clear_items():
+	for item in items.get_children():
+		item.free()
+
 func update_items():
 	var game = get_game()
 	var locations = locationdata.keys()
 	var location = game.get_location()
-	for item in items.get_children():
-		item.free()
+	clear_items()
 	var item_types = locationdata[location]["base"]
 	var item_class = preload("res://Scenes/Item.scn")
 	var keys = item_types.keys()
-	for i in range(keys.size()):
+	keys.invert()
+	for key in keys:
 		var item = item_class.instance()
-		item.set_name(keys[i])
+		item.set_name(key)
 		var owned = 0
-		if game.inventory.has(keys[i]):
-			owned = game.inventory[keys[i]]
+		if game.inventory.has(key):
+			owned = game.inventory[key]
 		item.set_owned(owned)
 		items.add_child(item)
 		var price = locationdata[location]["base"][item.get_name()] + locationdata[location]["mod"][item.get_name()]

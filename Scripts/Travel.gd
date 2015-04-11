@@ -7,9 +7,16 @@ func _ready():
 
 func Travel(item):
 	var game = get_game()
-	var trade = get_parent().get_child(0)
+	var trade = get_trade()
 	game.set_location(item)
 	trade.update_items()
 
+func clear():
+	for c in get_children():
+		c.free()
+
 func get_game():
 	return get_parent().get_parent()
+
+func get_trade():
+	return get_parent().get_child(0)

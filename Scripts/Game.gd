@@ -1,6 +1,33 @@
 extends Control
 
 var inventory = {}
+var exit = false
+
+func _ready():
+	set_process(true)
+	set_process_input(true)
+
+func _input(event):
+	if exit:
+		print("input worked")
+		Input.action_press("exit")
+		#var ev = InputEvent()
+		#ev.type = InputEvent.ACTION
+		#ev.set_as_action("exit", true)
+		#get_tree().input_event(ev)
+
+func exit():
+	get_trade().clear_items()
+	get_travel().clear()
+	get_tree().quit()
+
+func _process(delta):
+	if(Input.is_action_pressed("exit")):
+		exit()
+
+func _notification(what):
+	if what == 7:
+		exit()
 
 func Bought(item, amount, cost):
 	var name = item.get_name()
@@ -35,9 +62,15 @@ func set_location(location):
 
 func get_location():
 	var location = get_child(0).get_child(0).get_child(1).get_child(1).get_text()
-	var trade = get_child(1).get_child(0)
+	var trade = get_trade()
 	var locations = trade.locationdata.keys()
 	if location == "":
 		location = locations[0]
 	set_location(location)
 	return location
+
+func get_trade():
+	return get_child(1).get_child(0)
+
+func get_travel():
+	return get_child(1).get_child(1)
